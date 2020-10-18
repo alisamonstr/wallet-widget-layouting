@@ -1,35 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import * as serviceWorker from './serviceWorker'
-import { createGlobalStyle } from 'styled-components'
-import { createMuiTheme, ThemeProvider } from '@material-ui/core'
+import { ThemeProvider } from 'styled-components'
+import { createMuiTheme, StylesProvider, ThemeProvider as MuiProvider } from '@material-ui/core'
+import CssBaseline from '@material-ui/core/CssBaseline'
 import { MuiPickersUtilsProvider } from '@material-ui/pickers'
 import DateFnsUtils from '@date-io/date-fns'
 
-const GlobalStyle = createGlobalStyle`
-body {
-    //margin: 0;
-    //padding: 0;
-    * {
-      font-family: TTCommons, sans-serif;
-    }
-  }
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  @font-face {
-    font-family: "TTCommons";
-    src: url("fonts/TTCommons-Regular.ttf");
-    font-style: normal;
-  } 
-  @font-face {
-    font-family: "TTCommons";
-    src: url("fonts/TTCommons-Medium.ttf");
-    font-weight: 500;
-  }   
-`
+import { GlobalStyle } from './globalStyles'
+import * as serviceWorker from './serviceWorker'
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -45,8 +25,13 @@ ReactDOM.render(
   <React.StrictMode>
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <App />
+        <MuiProvider theme={theme}>
+          <StylesProvider injectFirst>
+            <GlobalStyle />
+            <CssBaseline />
+            <App />
+          </StylesProvider>
+        </MuiProvider>
       </ThemeProvider>
     </MuiPickersUtilsProvider>
   </React.StrictMode>,

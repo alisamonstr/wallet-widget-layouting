@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import QRcode from '../../images/QRcode.png'
 import { IconButton } from '@material-ui/core'
 import { ReactComponent as Arrow } from '../../images/Arrow.svg'
@@ -33,6 +33,8 @@ const Wrapper = styled.div`
 `
 const Amount = styled.div`
   font-size: 32px;
+  color: ${(p) => p.theme.palette.primary.main};
+  line-height: 1;
 `
 const GreyLine = styled.div`
   position: relative;
@@ -47,13 +49,13 @@ const BlueLine = styled.div`
   background-color: #80d5ff;
 `
 const ArrowButton = styled(IconButton)`
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   padding: 0;
-  border: 1px solid #011c4d;
-  margin: 10px;
+  border: 1px solid ${(p) => p.theme.palette.primary.main};
+  color: ${(p) => p.theme.palette.primary.main};
   &.MuiIconButton-root {
-    border: 2px solid #011c4d;
+    border: 2px solid ${(p) => p.theme.palette.primary.main};
     margin-left: 10px;
   }
 `
@@ -67,7 +69,7 @@ export const WalletHeader = () => {
       <QRcodPic />
       <Wrapper>
         <Title>BTC WALLET</Title>
-        <Amount>0,084643 BTC</Amount>
+        <Amount color="primary">0,084643 BTC</Amount>
         <GreyLine>
           <BlueLine />
         </GreyLine>

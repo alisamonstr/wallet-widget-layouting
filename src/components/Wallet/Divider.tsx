@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 const StyledDiv = styled.div`
   height: 2px;
@@ -8,6 +8,4 @@ const StyledDiv = styled.div`
   margin-top: -2px;
 `
 
-export const Divider = () => {
-  return <StyledDiv></StyledDiv>
-}
+export const Divider = () => <StyledDiv />

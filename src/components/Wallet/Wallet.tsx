@@ -12,7 +12,7 @@ const Container = styled(Paper)`
   display: flex;
   flex-direction: row;
   height: 100%;
-  width: 75%;
+  width: 490px;
   background: white;
   overflow: hidden;
   &.MuiPaper-root {

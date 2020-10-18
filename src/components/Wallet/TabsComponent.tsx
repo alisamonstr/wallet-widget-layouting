@@ -1,27 +1,21 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
-import { FormControl, Tab, Tabs } from '@material-ui/core'
+import styled from 'styled-components/macro'
+import { Tab, Tabs } from '@material-ui/core'
 import { Divider } from './Divider'
 
 const Wrapper = styled.div`
   margin: 10px 0;
 `
 const StyledTabs = styled(Tabs)`
-  &.MuiTabs-root {
-    min-height: 30px;
-  }
-  //.MuiTabs-indicator {
-  //  background-color: black;
-  //}
+  min-height: 30px;
 `
 const StyledTab = styled(Tab)`
-  &.MuiTab-root {
-    min-width: auto;
-    min-height: auto;
-    padding: 0 10px 0 5px;
-    text-transform: none;
-    font-size: 16px;
-  }
+  min-width: auto;
+  min-height: auto;
+  padding: 3px 5px 0 5px;
+  margin-right: 5px;
+  text-transform: none;
+  font-size: 16px;
 `
 
 export const TabsComponent = () => {
